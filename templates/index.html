@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+Spellburn and Battlescars
+{% endblock %}
+
+{% block content %}
+<h1>Hello
+    {% if current_user.is_authenticated %}
+    {{ current_user.username }}
+    {% else %}
+    Friend
+    {% endif %}!
+</h1>
+
+<br>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h2 class="display-4">Welcome to this modest tool</h2>
+        <p class="lead">Create characters and use these references for the RPG <a
+                href="https://xenio-in-a-bottle.itch.io/sab" target="blank"><b>Spellburn and Battlescars</b></a>, by <a
+                href="https://xenio-in-a-bottle.itch.io/" target="blank">Matheus Henrique Morais</a>.
+        </p>
+    </div>
+</div>
+
+{% endblock %}

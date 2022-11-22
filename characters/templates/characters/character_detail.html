@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}
+Donjon Rampe Classiques | {{character.name}}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <table class="table table-striped" style="width: 400px">
+                <tr>
+                    <th colspan="2">{{character.name}}</th>
+                </tr>
+
+                <tr>
+                    <td>Métier</td>
+                    <td>{{character.background}}</td>
+                </tr>
+
+            </table>
+
+            <table class="table table-striped" style="width: 400px">
+                <tr>
+                    <th colspan="2">Inventaire</th>
+                </tr>
+                <tr>
+
+                    <td colspan="2">{{character.gear}}</td>
+                </tr>
+
+            </table>
+
+
+        </div>
+        <div class="col-xs-6"> </div>
+        <div class="col-xs-6">
+            <table class="table table-striped">
+                <tr>
+                    <th colspan="2">{{character.archetype}}</th>
+                </tr>
+
+                <tr>
+                    <td>❤️</td>
+                    <td> {{character.hp}}</td>
+                </tr>
+                <tr>
+                    <td>🛡️</td>
+                    <td>{{character.armor}}</td>
+                </tr>
+
+            </table>
+
+        </div>
+        <div class="col-xs-6"> </div>
+        <div class="col-xs-6">
+            <table class="table table-striped" style="width: 250px">
+                <tr>
+                    <th scope="col">Caractéristique</th>
+                    <th scope="col">Valeur</th>
+
+                </tr>
+                <tr>
+                    <td>BODY</td>
+                    <td>{{character.body}}</td>
+
+                </tr>
+                <tr>
+                    <td>MIND</td>
+                    <td>{{character.mind}}</td>
+
+                </tr>
+                <tr>
+                    <td>LUCK</td>
+                    <td>{{character.luck}}</td>
+
+                </tr>
+
+
+            </table>
+
+
+
+            {% if character.archetype == "Mage" or character.archetype == "Elfe" or character.archetype == "Clerc" %}
+            <table class="table table-striped" style="width: 250px">
+                <tr>
+                    <th>Sorts connus</th>
+
+                </tr>
+                <tr>
+                    <td>{{character.spells_known}}</td>
+                </tr>
+                {% if character.archetype == "Clerc" %}
+                <tr>
+                    <th>Divinité</th>
+
+                </tr>
+                <tr>
+                    <td>{{character.deity}}</td>
+                </tr>
+                {% endif %}
+
+            </table>
+            {% endif %}
+        </div>
+        <div class="col-xs-6"> </div>
+
+    </div>
+</div>
+
+
+
+<br>
+
+<a class="btn btn-secondary" role="button" href="#">📝 Modifier</a>
+
+
+{% endblock %}

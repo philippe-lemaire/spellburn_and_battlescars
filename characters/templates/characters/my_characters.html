@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+Donjon Rampe Classiques | Mes personnages
+{% endblock %}
+
+{% block content %}
+<h1>Mes Personnages</h1>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+
+            <th scope="col">Archetype</th>
+
+            <th scope='col'>Hit Protection</th>
+            <th scope='col'>Background</th>
+
+            <th scope="col">Modifier</th>
+            <th scope="col">Supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for char in characters %}
+        <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td><a href="{% url 'characters:character_detail' char.pk %}">{{char.name}}</a></td>
+
+            <td>{{char.archetype}}</td>
+
+            <td>{{char.hp}}</td>
+            <td>{{char.background}}</td>
+
+            <td><a href="#">📝</a></td>
+            <td><a class='danger' href="#">⚰️</a></td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+<a class="btn btn-primary" role="button" href="{% url 'characters:create_character' %}">Créer un autre personnage</a>
+{% endblock %}
