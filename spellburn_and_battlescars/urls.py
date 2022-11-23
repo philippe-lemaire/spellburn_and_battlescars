@@ -24,3 +24,6 @@ urlpatterns = [
     path("authentification/", include("simple_auth.urls")),
     path("", TemplateView.as_view(template_name="index.html"), name="index"),
 ]
+
+handler404 = "spellburn_and_battlescars.views.page_not_found_view"
+handler500 = "spellburn_and_battlescars.views.error_view"
