@@ -86,8 +86,9 @@ def delete_character(request, pk):
     character = Character.objects.get(pk=pk)
     # check if character.user and request.user match
     if character.user == request.user:
+        name = character.name
         character.delete()
-        messages.success(request, "Personnage effacé.")
+        messages.success(request, f"Rest in peace, {name}.")
     else:
         messages.warning(request, "This characters is not yours.")
 
