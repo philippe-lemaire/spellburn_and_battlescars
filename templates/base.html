@@ -54,7 +54,7 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">🔮 Magic</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                            <a class="dropdown-item" href="#">📜 Spells</a>
+                            <a class="dropdown-item" href="{% url 'characters:spells' %}">📜 Spells</a>
                             <a class="dropdown-item" href="{% url 'characters:mishaps' %}">💥 Mishaps</a>
                         </div>
                     </li>
@@ -107,7 +107,7 @@
     </div>
     {% endfor %}
     {% endif %}
-
+    <br>
     {% endblock %}
     <div class="container div-1">
 

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+Spellburn and Battlescars | Mishaps
+{% endblock %}
+
+{% block content %}
+<h1>List of Spells</h1>
+
+<p>Example spells. Roll d66 on this table for a random Scroll as loot.
+    If the spell isn’t instant and it doesn’t have a specified duration, it lasts 1 Turn.</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>d66</th>
+            <th>Spell Name</th>
+            <th>Effect</th>
+        </tr>
+    </thead>
+    {% for spell in spells %}
+
+    <tr>
+        {% for v in spell.values %}
+        <td>{{v}}</td>
+        {% endfor %}
+
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock%}

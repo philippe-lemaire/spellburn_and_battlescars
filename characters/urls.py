@@ -16,5 +16,6 @@ urlpatterns = [
         "my_characters/delete/<int:pk>", views.delete_character, name="delete_character"
     ),
     path("scars", views.Scars.as_view(), name="scars"),
+    path("magic/spells", views.Spells.as_view(), name="spells"),
     path("magic/mishaps", views.Mishaps.as_view(), name="mishaps"),
 ]
