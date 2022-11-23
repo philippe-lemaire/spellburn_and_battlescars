@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+Spellburn and Battlescars | Scars
+{% endblock %}
+
+{% block content %}
+<h1>Scars</h1>
+<p>If an attack takes you to exactly 0 HP, take a permanent Scar. Reference the total amount of Damage received with the
+    table below:</p>
+<table class="table table-striped">
+    {% for dmg, scar in scars.items%}
+    <tr>
+        <td>{{dmg}}</td>
+        <td>{{scar}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock%}

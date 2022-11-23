@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 
 from .models import Character
 from .forms import CharacterCreationForm
@@ -21,6 +21,9 @@ from .random_names import random_names
 from .archetypes import archetypes, origins
 
 from .equipment import equipment
+from .scars import scars
+
+from .mishaps import mishaps
 
 
 @login_required
@@ -103,3 +106,21 @@ def delete_character(request, pk):
         messages.warning(request, "This characters is not yours.")
 
     return HttpResponseRedirect(reverse("characters:my_characters"))
+
+
+class Scars(TemplateView):
+    template_name = "characters/scars.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["scars"] = scars
+        return context
+
+
+class Mishaps(TemplateView):
+    template_name = "characters/mishaps.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["mishaps"] = mishaps
+        return context
