@@ -68,7 +68,9 @@ def create_character(request):
 
             # redirect to my characters or character detail
             # add a success message before
-            messages.success(request, "Personnage créé.")
+            messages.success(
+                request, f"Welcome to {character.name}, the {character.archetype}."
+            )
             return HttpResponseRedirect(reverse("characters:my_characters"))
     else:
         # build context with empty form
