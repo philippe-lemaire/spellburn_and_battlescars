@@ -38,7 +38,7 @@
 
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'characters:scars' %}">Scars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'characters:scars' %}">🤕 Scars</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">🛒 Gear</a>
@@ -54,10 +54,20 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">🔮 Magic</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                            <a class="dropdown-item" href="#">🧙 Spells</a>
-                            <a class="dropdown-item" href="{% url 'characters:mishaps' %}"> Mishaps</a>
+                            <a class="dropdown-item" href="#">📜 Spells</a>
+                            <a class="dropdown-item" href="{% url 'characters:mishaps' %}">💥 Mishaps</a>
                         </div>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">💁 NPCs</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="#">🙋 Hirelings</a>
+                            <a class="dropdown-item" href="{% url 'creatures:index' %}">🧟 Opponents</a>
+                        </div>
+                    </li>
+
 
 
                 </ul>

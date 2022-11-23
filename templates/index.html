@@ -6,9 +6,9 @@ Spellburn and Battlescars
 {% endblock %}
 
 {% block content %}
-<h1>Hello
-    {% if current_user.is_authenticated %}
-    {{ current_user.username }}
+<h1>Hello,
+    {% if user.is_authenticated %}
+    {{user.username }}
     {% else %}
     Friend
     {% endif %}!
@@ -20,7 +20,7 @@ Spellburn and Battlescars
     <div class="container">
         <h2 class="display-4">Welcome to this modest tool</h2>
 
-        <img src="{% static 'img/sab.png' %}" />
+        <img src="{% static 'characters/sab.png' %}" />
         <p class="lead">Create characters and use these references for the RPG <a
                 href="https://xenio-in-a-bottle.itch.io/sab" target="blank"><b>Spellburn and Battlescars</b></a>, by <a
                 href="https://xenio-in-a-bottle.itch.io/" target="blank">Matheus Henrique Morais</a>.

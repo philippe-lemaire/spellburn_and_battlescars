@@ -5,7 +5,7 @@ from . import views
 app_name = "creatures"
 
 urlpatterns = [
-    path("", views.IndexView.as_view(), name="index"),
+    path("opponents", views.IndexView.as_view(), name="index"),
     path(
         "<int:pk>",
         views.CreatureDetailView.as_view(),

@@ -1,18 +1,17 @@
 {% extends "base.html" %}
 {% block title %}
-Bestiaire Mausritter
+Spellburn and Battlescars | Opponents
 {% endblock %}
 {% block content %}
-<h1>Bestiaire</h1>
+<h1>Opponnents</h1>
 
 <table class="table table-striped">
     <tr>
         <th>Name</th>
-        <th>PV</th>
-        <th>Armure</th>
-        <th>FOR</th>
-        <th>DEX</th>
-        <th>VOL</th>
+        <th>HP</th>
+        <th>Armor</th>
+        <th>BODY</th>
+        <th>MIND</th>
     </tr>
 
     {% for creature in creature_list %}
@@ -20,17 +19,12 @@ Bestiaire Mausritter
         <td>
             <a href="{% url 'creatures:detail' creature.pk %}">{{ creature.name }}</a>
         </td>
-        <td>{{ creature.HP }}</td>
+        <td>{{ creature.hp }}</td>
         <td>{% if creature.armor %}{{ creature.armor }}{% endif %}</td>
-        <td>{{ creature.STR }}</td>
-        <td>{{ creature.DEX }}</td>
-        <td>{{ creature.WIL }}</td>
+        <td>{{ creature.body }}</td>
+        <td>{{ creature.mind }}</td>
+
     </tr>
-
-
-
-
-
     {% endfor %}
 </table>
 {% endblock %}

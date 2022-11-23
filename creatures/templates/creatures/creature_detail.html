@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-Chevalier Souris - Bestiaire - {{ creature.name }}
+Spellburn and Battlescars | Opponents | {{ creature.name }}
 {% endblock %}
 {% block content %}
 <h1>{{ creature.name }}</h1>
@@ -9,13 +9,13 @@ Chevalier Souris - Bestiaire - {{ creature.name }}
 <table class="table table-striped">
     {% if creature.armor > 0 %}
     <tr>
-        <td colspan="2"><strong>{{creature.hp}} PV</strong></td>
-        <td><strong>Armure {{creature.armor}}</strong></td>
+        <td colspan="1"><strong>{{creature.hp}} HP</strong></td>
+        <td><strong>Armor {{creature.armor}}</strong></td>
 
     </tr>
     {% else %}
     <tr>
-        <td colspan="3"><strong>{{creature.hp}} PV</strong></td>
+        <td colspan="2"><strong>{{creature.hp}} HP</strong></td>
     </tr>
 
     {% endif %}
@@ -25,14 +25,14 @@ Chevalier Souris - Bestiaire - {{ creature.name }}
 
     </tr>
     <tr>
-        <td><strong>attack:</strong></td>
+        <td><strong>Attack:</strong></td>
         <td><strong>{{creature.attack}}</strong></td>
 
     </tr>
 
     {% if creature.special %}
     <tr>
-        <td colspan="3">{{creature.special}}</td>
+        <td colspan="3">{{creature.special|safe}}</td>
     </tr>
     {% endif %}
 
