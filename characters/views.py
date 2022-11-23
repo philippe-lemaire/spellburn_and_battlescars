@@ -84,6 +84,11 @@ class character_detail(LoginRequiredMixin, DetailView):
 @login_required
 def delete_character(request, pk):
     character = Character.objects.get(pk=pk)
-    character.delete()
-    messages.success(request, "Personnage effacé.")
+    # check if character.user and request.user match
+    if character.user == request.user:
+        character.delete()
+        messages.success(request, "Personnage effacé.")
+    else:
+        messages.warning(request, "This characters is not yours.")
+
     return HttpResponseRedirect(reverse("characters:my_characters"))
