@@ -37,7 +37,10 @@ def create_character(request):
             if character.archetype == "Random":
                 character.archetype = choice(archetypes)
 
-            character.name = form.cleaned_data["name"] or "Anonyme"
+            character.name = form.cleaned_data["name"] or choice(
+                random_names.get(character.archetype)
+            )
+
             character.user = request.user
 
             character.hp = randint(1, 6)

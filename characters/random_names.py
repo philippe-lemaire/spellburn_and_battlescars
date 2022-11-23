@@ -602,12 +602,20 @@ elf_names = [
     "Tarandîs",
 ]
 
-random_names = {
-    "Guerrier": fighter_names,
-    "Clerc": caster_names,
-    "Voleur": fighter_names,
-    "Mage": caster_names,
-    "Nain": dwarf_names,
-    "Elfe": elf_names,
-    "Halfelin": halflin_names,
-}
+from .archetypes import archetypes
+
+
+random_names = dict(
+    zip(
+        archetypes,
+        (
+            caster_names,
+            fighter_names,
+            caster_names,
+            fighter_names,
+            dwarf_names,
+            elf_names,
+            halflin_names,
+        ),
+    )
+)
