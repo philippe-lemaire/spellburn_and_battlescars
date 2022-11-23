@@ -2,7 +2,7 @@ archetypes = ("Cleric", "Fighter", "Magic User", "Thief", "Dwarf", "Elf", "Halfl
 
 origin_cleric = {
     "prompt": "Who do you worship?",
-    "options": (
+    "choices": (
         (
             1,
             "God of Battle • As long as you wear a helmet, heretic creatures can’t refuse to duel with you.",
@@ -131,3 +131,6 @@ origins = dict(
         ),
     )
 )
+
+if __name__ == "__main__":
+    print(origins)

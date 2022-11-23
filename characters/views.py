@@ -18,7 +18,7 @@ from .backgrounds import backgrounds
 from .equipment import equipment
 
 from .random_names import random_names
-from .archetypes import archetypes
+from .archetypes import archetypes, origins
 
 from .equipment import equipment
 
@@ -39,6 +39,13 @@ def create_character(request):
 
             character.name = form.cleaned_data["name"] or choice(
                 random_names.get(character.archetype)
+            )
+
+            # random origin for now
+            origin_prompt = origins.get(character.archetype).get("prompt")
+            origin_choices = origins.get(character.archetype).get("choices")
+            character.origin = (
+                f"<strong>{origin_prompt}</strong><br>{choice(origin_choices)[1]}"
             )
 
             character.user = request.user
