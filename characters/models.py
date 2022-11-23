@@ -22,3 +22,6 @@ class Character(models.Model):
     mind = models.SmallIntegerField(default=0, blank=True, null=True)
     luck = models.SmallIntegerField(default=0, blank=True, null=True)
     gear = models.TextField()
+
+    def __str__(self):
+        return self.name
