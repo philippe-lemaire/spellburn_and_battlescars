@@ -15,7 +15,7 @@ Spellburn and Battlescars | {{character.name}}
                 </tr>
 
                 <tr>
-                    <td>Métier</td>
+                    <td>Background</td>
                     <td>{{character.background}}</td>
                 </tr>
 
@@ -23,7 +23,7 @@ Spellburn and Battlescars | {{character.name}}
 
             <table class="table table-striped" style="width: 400px">
                 <tr>
-                    <th colspan="2">Inventaire</th>
+                    <th colspan="2">Gear</th>
                 </tr>
                 <tr>
 
@@ -57,8 +57,8 @@ Spellburn and Battlescars | {{character.name}}
         <div class="col-xs-6">
             <table class="table table-striped" style="width: 250px">
                 <tr>
-                    <th scope="col">Caractéristique</th>
-                    <th scope="col">Valeur</th>
+                    <th scope="col">Attribute</th>
+                    <th scope="col">Value</th>
 
                 </tr>
                 <tr>
@@ -82,27 +82,7 @@ Spellburn and Battlescars | {{character.name}}
 
 
 
-            {% if character.archetype == "Mage" or character.archetype == "Elfe" or character.archetype == "Clerc" %}
-            <table class="table table-striped" style="width: 250px">
-                <tr>
-                    <th>Sorts connus</th>
 
-                </tr>
-                <tr>
-                    <td>{{character.spells_known}}</td>
-                </tr>
-                {% if character.archetype == "Clerc" %}
-                <tr>
-                    <th>Divinité</th>
-
-                </tr>
-                <tr>
-                    <td>{{character.deity}}</td>
-                </tr>
-                {% endif %}
-
-            </table>
-            {% endif %}
         </div>
         <div class="col-xs-6"> </div>
 
