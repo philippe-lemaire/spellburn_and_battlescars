@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}
+Chevalier Souris - Bestiaire - {{ creature.name }}
+{% endblock %}
+{% block content %}
+<h1>{{ creature.name }}</h1>
+
+
+<table class="table table-striped">
+    {% if creature.armor > 0 %}
+    <tr>
+        <td colspan="2"><strong>{{creature.hp}} PV</strong></td>
+        <td><strong>Armure {{creature.armor}}</strong></td>
+
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="3"><strong>{{creature.hp}} PV</strong></td>
+    </tr>
+
+    {% endif %}
+    <tr>
+        <td><strong>BODY {{creature.body}}</strong></td>
+        <td><strong>MIND {{creature.mind}}</strong></td>
+
+    </tr>
+    <tr>
+        <td><strong>attack:</strong></td>
+        <td><strong>{{creature.attack}}</strong></td>
+
+    </tr>
+
+    {% if creature.special %}
+    <tr>
+        <td colspan="3">{{creature.special}}</td>
+    </tr>
+    {% endif %}
+
+
+</table>
+
+
+{% endblock %}
