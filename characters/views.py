@@ -11,35 +11,41 @@ from django.views.generic import ListView, DetailView
 from .models import Character
 from .forms import CharacterCreationForm
 
+
 from .roll import roll_stats
 
 from .backgrounds import backgrounds
 from .equipment import equipment
 
 from .random_names import random_names
+from .archetypes import archetypes
 
 from .equipment import equipment
 
 
 @login_required
 def create_character(request):
-
     if request.method == "POST":
         form = CharacterCreationForm(request.POST)
         if form.is_valid():
             # création du personnage proprement dit
             character = Character()
+            character.archetype = CharacterCreationForm.archetype_choices[
+                int(form.cleaned_data["archetype"]) - 1
+            ][1]
+
+            if character.archetype == "Random":
+                character.archetype = choice(archetypes)
+
             character.name = form.cleaned_data["name"] or "Anonyme"
             character.user = request.user
-
-            character.archetype = "Paysan"
 
             character.hp = randint(1, 6)
             background, bg_gear = choice(backgrounds.get(character.hp))
             character.background = background
             character.gear = bg_gear
-
-            body, mind, luck = roll_stats(prioritize_body=True)
+            prioritize_body = form.cleaned_data["prioritize_body"]
+            body, mind, luck = roll_stats(prioritize_body=prioritize_body)
             character.body = body
             character.mind = mind
             character.luck = luck
@@ -60,7 +66,7 @@ def create_character(request):
 
 class my_characters(LoginRequiredMixin, ListView):
     model = Character
-    paginate_by = 10  # if pagination is desired
+    # paginate_by = 10  # if pagination is desired
     template_name = "characters/my_characters.html"
     context_object_name = "characters"
 
@@ -73,3 +79,11 @@ class my_characters(LoginRequiredMixin, ListView):
 class character_detail(LoginRequiredMixin, DetailView):
     model = Character
     template_name = "characters/character_detail.html"
+
+
+@login_required
+def delete_character(request, pk):
+    character = Character.objects.get(pk=pk)
+    character.delete()
+    messages.success(request, "Personnage effacé.")
+    return HttpResponseRedirect(reverse("characters:my_characters"))

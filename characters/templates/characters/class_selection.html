@@ -1,18 +1,18 @@
 {% extends "base.html" %}
-{% from 'bootstrap/form.html' import render_form %}
+{% load crispy_forms_tags %}
 
 {% block title %}
-Donjon Rampe Classiques | Choisir une classe
+Spellburn and Battlescars | Archetype Choice
 {% endblock %}
 
 {% block content %}
-<h1>Choisir une classe pour {{character.name}}</h1>
+<h1>Select an archetype for {{character.name}}</h1>
 <br>
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{url_for('main.index')}}">Taverne</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Choisir une classe</li>
+        <li class="breadcrumb-item"><a href="#">Tavern</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Select an Archetype</li>
     </ol>
 </nav>
 
@@ -21,44 +21,31 @@ Donjon Rampe Classiques | Choisir une classe
         <div class="col-sm">
             <table class="table table-striped">
                 <tr>
-                    <th scope="col">Caractéristique</th>
-                    <th scope="col">Valeur</th>
-                    <th scope="col">Mod</th>
+                    <th scope="col">Attribute</th>
+                    <th scope="col">Value</th>
                 </tr>
                 <tr>
-                    <td>Force</td>
-                    <td>{{character.strength}}</td>
-                    <td>{{mod[character.strength]}}</td>
+                    <td>BODY</td>
+                    <td>{{character.body}}</td>
                 </tr>
                 <tr>
-                    <td>Agilité</td>
-                    <td>{{character.agility}}</td>
-                    <td>{{mod[character.agility]}}</td>
+                    <td>MIND</td>
+                    <td>{{character.mind}}</td>
                 </tr>
                 <tr>
-                    <td>Endurance</td>
-                    <td>{{character.stamina}}</td>
-                    <td>{{mod[character.stamina]}}</td>
-                </tr>
-                <tr>
-                    <td>Présence</td>
-                    <td>{{character.personality}}</td>
-                    <td>{{mod[character.personality]}}</td>
-                </tr>
-                <tr>
-                    <td>Intelligence</td>
-                    <td>{{character.intelligence}}</td>
-                    <td>{{mod[character.intelligence]}}</td>
-                </tr>
-                <tr>
-                    <td>Chance</td>
+                    <td>LUCK</td>
                     <td>{{character.luck}}</td>
-                    <td>{{mod[character.luck]}}</td>
                 </tr>
             </table>
         </div>
 
-        <div class="col-sm">{{ render_form(form) }}</div>
+        <div class="col-sm">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-primary" type="submit">Select</button>
+            </form>
+        </div>
 
 
     </div>

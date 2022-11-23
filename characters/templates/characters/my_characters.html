@@ -15,7 +15,10 @@ Donjon Rampe Classiques | Mes personnages
 
             <th scope="col">Archetype</th>
 
-            <th scope='col'>Hit Protection</th>
+            <th scope='col'>HP</th>
+            <th scope='col'>BODY</th>
+            <th scope='col'>MIND</th>
+            <th scope='col'>LUCK</th>
             <th scope='col'>Background</th>
 
             <th scope="col">Modifier</th>
@@ -31,10 +34,13 @@ Donjon Rampe Classiques | Mes personnages
             <td>{{char.archetype}}</td>
 
             <td>{{char.hp}}</td>
+            <td>{{char.body}}</td>
+            <td>{{char.mind}}</td>
+            <td>{{char.luck}}</td>
             <td>{{char.background}}</td>
 
             <td><a href="#">📝</a></td>
-            <td><a class='danger' href="#">⚰️</a></td>
+            <td><a class='danger' href="{% url 'characters:delete_character' char.pk %}">⚰️</a></td>
         </tr>
         {% endfor %}
 

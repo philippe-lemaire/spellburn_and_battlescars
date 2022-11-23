@@ -5,11 +5,14 @@ from . import views
 app_name = "characters"
 
 urlpatterns = [
-    path("creer_personnage", views.create_character, name="create_character"),
-    path("mes_personnages", views.my_characters.as_view(), name="my_characters"),
+    path("create_character", views.create_character, name="create_character"),
+    path("my_characters", views.my_characters.as_view(), name="my_characters"),
     path(
-        "mes_personnages/<int:pk>",
+        "my_characters/detail/<int:pk>",
         views.character_detail.as_view(),
         name="character_detail",
+    ),
+    path(
+        "my_characters/delete/<int:pk>", views.delete_character, name="delete_character"
     ),
 ]
