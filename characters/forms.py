@@ -1,5 +1,5 @@
 from django import forms
-
+from .archetypes import origins
 from .spells import spell_choices
 
 
@@ -30,6 +30,20 @@ class CharacterCreationForm(forms.Form):
         label="Do you want to prioritize BODY over MIND?",
         required=False,
     )
+
+
+class ChooseOriginForm(forms.Form):
+    origin = forms.ChoiceField(
+        label="",
+        choices=[],
+        required=True,
+    )
+
+    def __init__(self, archetype=None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if archetype:
+            self.fields["origin"].choices = origins.get(archetype).get("choices")
+            self.fields["origin"].label = origins.get(archetype).get("prompt")
 
 
 class RollSpellForm(forms.Form):

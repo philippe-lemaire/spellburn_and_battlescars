@@ -13,6 +13,11 @@ urlpatterns = [
         name="character_detail",
     ),
     path(
+        "create_character/choose_origin/<int:pk>",
+        views.choose_origin_view,
+        name="choose_origin",
+    ),
+    path(
         "my_characters/delete/<int:pk>", views.delete_character, name="delete_character"
     ),
     path("scars", views.Scars.as_view(), name="scars"),

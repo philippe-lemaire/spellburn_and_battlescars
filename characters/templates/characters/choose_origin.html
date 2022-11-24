@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Spellburn and Battlescars | Choose origin
+{% endblock %}
+
+{% block content %}
+<h1>Choose origin</h1>
+<br>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}">Tavern</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Create a Character</li>
+    </ol>
+</nav>
+<br>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-primary" type="submit">Select origin</button>
+</form>
+
+{% endblock %}

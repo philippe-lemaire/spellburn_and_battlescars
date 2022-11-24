@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.views.generic import ListView, DetailView, TemplateView
 
 from .models import Character
-from .forms import CharacterCreationForm, RollSpellForm
+from .forms import CharacterCreationForm, RollSpellForm, ChooseOriginForm
 
 
 from .roll import roll_stats, roll_spell_func
@@ -42,13 +42,6 @@ def create_character(request):
                 random_names.get(character.archetype)
             )
 
-            # random origin for now
-            origin_prompt = origins.get(character.archetype).get("prompt")
-            origin_choices = origins.get(character.archetype).get("choices")
-            character.origin = (
-                f"<strong>{origin_prompt}</strong><br>{choice(origin_choices)[1]}"
-            )
-
             character.user = request.user
 
             character.hp = randint(1, 6)
@@ -67,14 +60,50 @@ def create_character(request):
             # redirect to my characters or character detail
             # add a success message before
             messages.success(
-                request, f"Welcome to {character.name}, the {character.archetype}."
+                request,
+                f"{character.name}, the {character.archetype} created. Now choose an origin.",
             )
-            return HttpResponseRedirect(reverse("characters:my_characters"))
+            return HttpResponseRedirect(
+                reverse("characters:choose_origin", args=[character.pk])
+            )
     else:
         # build context with empty form
         context = {"form": CharacterCreationForm()}
 
     return render(request, "characters/create_character.html", context)
+
+
+@login_required
+def choose_origin_view(request, pk):
+    character = Character.objects.get(pk=pk)
+    # check if character.user and request.user match
+    if character.user == request.user:
+        if request.method == "POST":
+            # create the filled form, with archetype to manage the prompt and the choices
+            form = ChooseOriginForm(character.archetype, request.POST)
+
+            if form.is_valid():
+                origin_prompt = origins.get(character.archetype).get("prompt")
+                choice_made = int(form.cleaned_data["origin"]) - 1
+                origin_text = origins.get(character.archetype).get("choices")[
+                    choice_made
+                ][1]
+                character.origin = f"<b>{origin_prompt}</b><br>{origin_text}"
+                character.save()
+                messages.success(
+                    request, f"Welcome, {character.name} the {character.archetype}."
+                )
+                return HttpResponseRedirect(reverse("characters:my_characters"))
+            else:
+                messages.warning(request, "invalid form?")
+                return HttpResponseRedirect(reverse("characters:my_characters"))
+        else:
+            # build context with empty form with archetype to manage the prompt and the choices
+            context = {"form": ChooseOriginForm(archetype=character.archetype)}
+            return render(request, "characters/choose_origin.html", context)
+    else:
+        messages.warning(request, "This character is not yours")
+        return HttpResponseRedirect(reverse("characters:my_characters"))
 
 
 class my_characters(LoginRequiredMixin, ListView):
