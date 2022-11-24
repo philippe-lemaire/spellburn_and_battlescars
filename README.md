@@ -1,6 +1,6 @@
 # Spellburn and Battlescars
 
-A django web app to help run the RPG [Spellburn and Battlescars](https://xenio-in-a-bottle.itch.io/sab) by [Matheus Henrique Morais](https://xenio-in-a-bottle.itch.
+A django web app to help run the RPG [Spellburn and Battlescars](https://xenio-in-a-bottle.itch.io/sab) by [Matheus Henrique Morais](https://xenio-in-a-bottle.itch).
 
 All art by Emiel Boven. Support the artist at: [https://www.patreon.com/emielboven](https://www.patreon.com/emielboven)
     
