@@ -13,13 +13,20 @@ All art by Emiel Boven. Support the artist at: [https://www.patreon.com/emielbov
 ### set up environment variables
 Create a `.env` file containing
 
->>>
+```
 SECRET_KEY=some_secret_key_of_your_own  
 ENVIRONMENT=development
->>>
+```
 
 ### Set up the db
 `python manage.py migrate`
 
+
+### Create a superuser
+`python manage.py createsuperuser`
+
 ### Run the local server
 `python manage.py runserver`
+
+### Fill the creatures db 
+from the admin located at /admin
