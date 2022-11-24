@@ -28,3 +28,12 @@ class CharacterCreationForm(forms.Form):
         label="Do you want to prioritize BODY over MIND?",
         required=False,
     )
+
+
+class RollSpellForm(forms.Form):
+    power = forms.IntegerField(
+        min_value=1,
+        max_value=5,
+        label="What's the power level you are casting with ? Up to your free inventory slots (max 5). High power levels are dangerous.",
+        required=True,
+    )

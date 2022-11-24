@@ -18,5 +18,6 @@ urlpatterns = [
     path("scars", views.Scars.as_view(), name="scars"),
     path("magic/spells", views.Spells.as_view(), name="spells"),
     path("magic/mishaps", views.Mishaps.as_view(), name="mishaps"),
+    path("magic/roll_spell", views.roll_spell_view, name="roll_spell"),
     path("equipment", views.Equipment.as_view(), name="equipment"),
 ]

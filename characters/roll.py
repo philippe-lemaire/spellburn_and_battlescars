@@ -46,19 +46,26 @@ def roll_save(stat, advantage=False, disadvantage=False):
     return "Failure…"
 
 
-def roll_spell(power):
+def roll_spell_func(power):
 
+    mishap = None
     # roll the power * d6
     dice = [randint(1, 6) for d in range(power)]
-    print(dice)
+
+    sum_ = sum(dice)
     # each die above 3 gives fatigue
     fatigue = len([d for d in dice if d > 3])
 
     # check if mishap with length of the set of dice
     if len(set(dice)) < len(dice):
-        sum_ = sum(dice)
         if sum_ > 21:
-            sum_ = 21
-        return mishaps.get(sum_)
+            ms_sum = 21
+        else:
+            ms_sum = sum_
+        mishap = mishaps.get(ms_sum)
 
-    return sum(dice), fatigue
+    return dice, sum(dice), power, fatigue, mishap
+
+
+if __name__ == "__main__":
+    print(roll_spell(5))

@@ -9,10 +9,10 @@ from django.contrib import messages
 from django.views.generic import ListView, DetailView, TemplateView
 
 from .models import Character
-from .forms import CharacterCreationForm
+from .forms import CharacterCreationForm, RollSpellForm
 
 
-from .roll import roll_stats
+from .roll import roll_stats, roll_spell_func
 
 from .backgrounds import backgrounds
 from .random_names import random_names
@@ -144,3 +144,25 @@ class Equipment(TemplateView):
         context["weapons"] = WEAPONS
         context["tools"] = GEAR_TOOLS
         return context
+
+
+def roll_spell_view(request):
+    if request.method == "POST":
+        form = RollSpellForm(request.POST)
+
+        if form.is_valid():
+            power = form.cleaned_data.get("power")
+            DICE_LIST, SUM, DICE, FATIGUE, MISHAP = roll_spell_func(power)
+            context = {
+                "form": form,
+                "SUM": SUM,
+                "DICE_LIST": DICE_LIST,
+                "DICE": DICE,
+                "FATIGUE": FATIGUE,
+                "MISHAP": MISHAP,
+            }
+            return render(request, "characters/roll_spell.html", context)
+        # if a GET (or any other method) we'll create a blank form
+    else:
+        context = {"form": RollSpellForm()}
+    return render(request, "characters/roll_spell.html", context)
