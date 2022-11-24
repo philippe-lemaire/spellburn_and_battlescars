@@ -14,8 +14,7 @@ All art by Emiel Boven. Support the artist at: [https://www.patreon.com/emielbov
 Create a `.env` file containing
 
 >>>
-SECRET_KEY=some_secret_key_of_your_own
-
+SECRET_KEY=some_secret_key_of_your_own  
 ENVIRONMENT=development
 >>>
 
