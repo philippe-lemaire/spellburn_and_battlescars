@@ -1,11 +1,14 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}
 Spellburn and Battlescars | Mishaps
 {% endblock %}
 
 {% block content %}
 <h1>List of Spells</h1>
+
+<img class="rounded d-block" src="{% static 'characters/spell_books.png' %}"
+    alt="spell books with a skull and a candle on top" />
 
 <p>Example spells. Roll d66 on this table for a random Scroll as loot.
     If the spell isn’t instant and it doesn’t have a specified duration, it lasts 1 Turn.</p>
@@ -29,6 +32,6 @@ Spellburn and Battlescars | Mishaps
     {% endfor %}
 </table>
 
-
+<img class="rounded mx-auto d-block" src="{% static 'characters/casting.png' %}" alt="spell casters casting spells" />
 
 {% endblock%}

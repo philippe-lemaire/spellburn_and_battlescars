@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}
 Spellburn and Battlescars | Mishaps
 {% endblock %}
@@ -9,7 +9,8 @@ Spellburn and Battlescars | Mishaps
 
 <p>The GM can and should adapt these results according to the spell and
     character’s Background, adding color to the mechanical effects.</p>
-
+<img class="rounded mx-auto d-block align-right img-fluid" src="{% static 'characters/mishap.png' %}"
+    alt="spell caster with a giant eye globe as head" />
 <table class="table table-striped">
     <thead>
         <tr>

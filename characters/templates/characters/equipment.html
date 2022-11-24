@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static%}
 
 {% block title %}
 Spellburn and Battlescars | Equipment
@@ -7,42 +8,70 @@ Spellburn and Battlescars | Equipment
 {% block content %}
 <h1>Equipment Lists</h1>
 
+
+
 <p><em>Prices in Gold Pieces</em></p>
 
-<h2>Armor</h2>
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Armour</th>
-            <th>GP</th>
-        </tr>
-    </thead>
-    {% for name, cost in armor %}
 
-    <tr>
-        <td>{{name}}</td>
-        <td>{{cost}}</td>
-    </tr>
-    {% endfor %}
-</table>
+<h2>Armor</h2>
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col col-lg-8">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Armour</th>
+                        <th>GP</th>
+                    </tr>
+                </thead>
+                {% for name, cost in armor %}
+
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{cost}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-md-auto"><img src="{% static 'characters/knight.png' %}" alt="a female knight clad in armor" />
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
 
 
 <h2>Weapons</h2>
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Weapons</th>
-            <th>GP</th>
-        </tr>
-    </thead>
-    {% for name, cost in weapons %}
+<div class="container-fluid">
+    <div class="row">
 
-    <tr>
-        <td>{{name}}</td>
-        <td>{{cost}}</td>
-    </tr>
-    {% endfor %}
-</table>
+        <div class="col col-lg-8">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Weapons</th>
+                        <th>GP</th>
+                    </tr>
+                </thead>
+                {% for name, cost in weapons %}
+
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{cost}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-md-auto">
+            <img src="{% static 'characters/equipment.png' %}" alt="a female rogue appraising a spiked maul" />
+        </div>
+    </div>
+</div>
 
 
 <h2>Gear & Tools</h2>
