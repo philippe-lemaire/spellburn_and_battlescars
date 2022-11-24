@@ -6,7 +6,7 @@ Spellburn and Battlescars
 {% endblock %}
 
 {% block content %}
-<h1>Hello,
+<h1>Welcome,
     {% if user.is_authenticated %}
     {{user.username }}
     {% else %}
@@ -14,21 +14,8 @@ Spellburn and Battlescars
     {% endif %}!
 </h1>
 
-<br>
+<img src="{% static 'characters/sab.png' %}">
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h2 class="display-4">Welcome to this modest tool</h2>
-
-        <img src="{% static 'characters/sab.png' %}" />
-        <p class="lead">Create characters and use these references for the RPG <a
-                href="https://xenio-in-a-bottle.itch.io/sab" target="blank"><b>Spellburn and Battlescars</b></a>, by <a
-                href="https://xenio-in-a-bottle.itch.io/" target="blank">Matheus Henrique Morais</a>.
-        </p>
-
-        <p>All art by Emiel Boven.Support the artist at: <a
-                href="https://www.patreon.com/emielboven">https://www.patreon.com/emielboven</a></p>
-    </div>
-</div>
+<p>This is a simple tool to quickly generate characters, roll spells and mishaps, and consult tables and NPCs.</p>
 
 {% endblock %}

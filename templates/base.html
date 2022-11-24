@@ -19,7 +19,7 @@
 <body>
     <!-- Nav bar-->
     {% block navbar %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Spellburn and Battlescars</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -104,6 +104,9 @@
     {% endfor %}
     {% endif %}
     <br>
+    <br>
+    <br>
+
     {% endblock %}
     <div class="container div-1">
 
@@ -113,16 +116,17 @@
         </div>
     </div>
     {% block footer%}
-    <nav class="navbar navbar-light bg-light fixed-bottom">
-
-        <p><a href="https://xenio-in-a-bottle.itch.io/sab" target="blank"><b>Spellburn and
-                    Battlescars</b></a> is a game
-            by <a href="https://xenio-in-a-bottle.itch.io/" target="blank">Matheus Henrique Morais</a>.
-        </p>
-
-        <p>All art by Emiel Boven.Support the artist at: <a target="blank"
-                href="https://www.patreon.com/emielboven">https://www.patreon.com/emielboven</a></p>
-
+    <br><br>
+    <nav class="navbar bg-light fixed-bottom">
+        <div class="container-fluid">
+            <p><a href="https://xenio-in-a-bottle.itch.io/sab" target="blank"><b>Spellburn and
+                        Battlescars</b></a> is a game
+                by <a href="https://xenio-in-a-bottle.itch.io/" target="blank">Luís Fernando Anizello & Matheus Henrique
+                    Morais</a>, licensed under
+                CC-BY-SA 4.0.
+                All art by Emiel Boven, please <a target="blank" href="https://www.patreon.com/emielboven">support the
+                    artist</a>.</p>
+        </div>
     </nav>
     {% endblock %}
     <!-- Jquery and Popper-->
