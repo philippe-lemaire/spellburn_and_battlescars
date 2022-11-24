@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}
+Spellburn and Battlescars | Equipment
+{% endblock %}
+
+{% block content %}
+<h1>Equipment Lists</h1>
+
+<p><em>Prices in Gold Pieces</em></p>
+
+<h2>Armor</h2>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Armour</th>
+            <th>GP</th>
+        </tr>
+    </thead>
+    {% for name, cost in armor %}
+
+    <tr>
+        <td>{{name}}</td>
+        <td>{{cost}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<h2>Weapons</h2>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Weapons</th>
+            <th>GP</th>
+        </tr>
+    </thead>
+    {% for name, cost in weapons %}
+
+    <tr>
+        <td>{{name}}</td>
+        <td>{{cost}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<h2>Gear & Tools</h2>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Gear & Tools</th>
+            <th>GP</th>
+        </tr>
+    </thead>
+
+    {% for name, cost in tools %}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{cost}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock%}

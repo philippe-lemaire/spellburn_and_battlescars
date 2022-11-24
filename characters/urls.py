@@ -18,4 +18,5 @@ urlpatterns = [
     path("scars", views.Scars.as_view(), name="scars"),
     path("magic/spells", views.Spells.as_view(), name="spells"),
     path("magic/mishaps", views.Mishaps.as_view(), name="mishaps"),
+    path("equipment", views.Equipment.as_view(), name="equipment"),
 ]

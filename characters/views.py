@@ -15,12 +15,10 @@ from .forms import CharacterCreationForm
 from .roll import roll_stats
 
 from .backgrounds import backgrounds
-from .equipment import equipment
-
 from .random_names import random_names
 from .archetypes import archetypes, origins
 
-from .equipment import equipment
+from .equipment import ARMOR, WEAPONS, GEAR_TOOLS
 from .scars import scars
 from .mishaps import mishaps
 from .spells import spells
@@ -134,4 +132,15 @@ class Spells(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["spells"] = spells
+        return context
+
+
+class Equipment(TemplateView):
+    template_name = "characters/equipment.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["armor"] = ARMOR
+        context["weapons"] = WEAPONS
+        context["tools"] = GEAR_TOOLS
         return context
