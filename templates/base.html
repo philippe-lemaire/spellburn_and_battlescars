@@ -56,7 +56,7 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">💁 NPCs</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                            <a class="dropdown-item" href="#">🙋 Hirelings</a>
+                            <a class="dropdown-item" href="{% url 'creatures:hirelings' %}">🙋 Hirelings</a>
                             <a class="dropdown-item" href="{% url 'creatures:index' %}">🧟 Opponents</a>
                         </div>
                     </li>
@@ -110,7 +110,7 @@
         </div>
     </div>
     {% block footer%}
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light fixed-bottom">
 
         <p><a href="https://xenio-in-a-bottle.itch.io/sab" target="blank"><b>Spellburn and
                     Battlescars</b></a> is a game

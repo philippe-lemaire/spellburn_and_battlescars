@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Spellburn and Battlescars | Hirelings
+{% endblock %}
+
+{% block content %}
+
+<h1>Hirelings</h1>
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col col-lg-8">
+            <p>PCs can employ Hirelings to aid them in their adventures. To create a
+                Hireling, give them 10 for each Ability Score, 1 HP and a simple weapon (d6).
+                Customize as needed (e.g. an Academic might have 8 BODY and 12 MIND).
+            </p>
+
+
+
+            <p>Hirelings cost an amout of GP per day, or a share of whatever treasure the
+                party obtains.</p>
+
+            <p>The party needs to provide sustenance while the Hireling is employed. If the
+                Hireling is underpaid or mistreated, they’ll abandon the party.</p>
+
+            <p>Specialist Hirelings like an Alchemist, Guide, Medic, etc, charge more but
+                make tasks related to their skills Trivial. If unsure if such specialists are
+                available, the GM may ask for a LUCK Save.</p>
+        </div>
+        <div class="col-md-auto"><img clas="float-right" src="{% static 'creatures/hireling.png' %}" />
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<h2>Sample Hirelings <em>(price per day)</em></h2>
+
+<h3>Torchbearer / Carrier (1 GP)</h3>
+<ul>
+    <li>1 HP, Dagger (d6)</li>
+    <li>Inept in combat</li>
+</ul>
+
+
+<h3>Bodyguard (3 GP)</h3>
+
+<ul>
+    <li>3 HP, 1 Armor, 12 BODY,<br>
+        Crossbow (d8, bulky), Dagger (d6)</li>
+
+</ul>
+
+
+<h3>Rogue (10 GP)</h3>
+
+<ul>
+    <li>4 HP, 1 Armor, 12 MIND, 15 LUCK,<br>
+        Rapier (d8), Throwing Knives (d6)</li>
+    <li>Advantage in stealth and climbing.</li>
+</ul>
+
+{% endblock %}

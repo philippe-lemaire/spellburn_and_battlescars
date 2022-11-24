@@ -9,3 +9,7 @@ class IndexView(generic.ListView):
 
 class CreatureDetailView(generic.DetailView):
     model = Creature
+
+
+class HirelingsView(generic.TemplateView):
+    template_name = "creatures/hirelings.html"

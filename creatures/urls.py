@@ -11,4 +11,5 @@ urlpatterns = [
         views.CreatureDetailView.as_view(),
         name="detail",
     ),
+    path("hirelings", views.HirelingsView.as_view(), name="hirelings"),
 ]
