@@ -1,18 +1,20 @@
 {% extends "base.html" %}
+{% block title%}
+Spellburn and Battlescars | Log in
+{% endblock %}
 {% block content %}
 
 {% load crispy_forms_tags %}
 
 <!--Login-->
 <div class="container py-5">
-    <h1>Identification</h1>
+    <h1>Log in</h1>
     <form method="POST">
         {% csrf_token %}
         {{ login_form|crispy }}
-        <button class="btn btn-primary" type="submit">S'identifier</button>
+        <button class="btn btn-primary" type="submit">Log in</button>
     </form>
-    <p class="text-center">Vous n’avez pas encore de compte ? <a href="{% url 'simple_auth:register' %}">Créer un compte
-            utilisateur gratuit.</a>.</p>
+    <p class="text-center">You don't have an account yet? <a href="{% url 'simple_auth:register' %}">Sign in</a>.</p>
 </div>
 
 {% endblock %}
