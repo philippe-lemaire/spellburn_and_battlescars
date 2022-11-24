@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -7,6 +8,8 @@
     <!-- boostrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- our css -->
+    <link rel="stylesheet" href="{% static 'creatures/styles.css' %}">
     <title>{% block title %}{% endblock %}</title>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
@@ -55,7 +58,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">💁 NPCs</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
+                            <a class="dropdown-item" href="{% url 'creatures:NPCs' %}">🙋 NPCs generalities</a>
                             <a class="dropdown-item" href="{% url 'creatures:hirelings' %}">🙋 Hirelings</a>
                             <a class="dropdown-item" href="{% url 'creatures:index' %}">🧟 Opponents</a>
                         </div>

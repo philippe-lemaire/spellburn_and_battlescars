@@ -12,4 +12,5 @@ urlpatterns = [
         name="detail",
     ),
     path("hirelings", views.HirelingsView.as_view(), name="hirelings"),
+    path("NPCs", views.NPCView.as_view(), name="NPCs"),
 ]

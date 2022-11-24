@@ -13,3 +13,7 @@ class CreatureDetailView(generic.DetailView):
 
 class HirelingsView(generic.TemplateView):
     template_name = "creatures/hirelings.html"
+
+
+class NPCView(generic.TemplateView):
+    template_name = "creatures/NPCs.html"

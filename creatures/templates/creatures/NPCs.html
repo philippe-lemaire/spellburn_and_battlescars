@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Spellburn and Battlescars | NPCs
+{% endblock %}
+
+{% block content %}
+
+<h1>NPCs<br>
+
+    Some will help you, some will stand in your way.</h1>
+<img clas="float-right" src="{% static 'creatures/willo.png' %}" />
+
+
+
+<h2>Assumed Attribute Score</h2>
+
+If not defined, it is 10.
+<h2>Reactions</h2>
+When the PCs encounter an NPC whose reaction to the party is not obvious,
+the GM may roll 2d6 and consult the following table:
+<table class="table table-striped">
+    <tr>
+        <th>2D6</th>
+        <th>Reaction</th>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td>Hostile</td>
+    </tr>
+
+    <tr>
+        <td>3–5</td>
+        <td>Wary</td>
+    </tr>
+
+    <tr>
+        <td>6–8</td>
+        <td>Curious</td>
+    </tr>
+
+    <tr>
+        <td>9-11</td>
+        <td>Kind</td>
+    </tr>
+
+    <tr>
+        <td>12</td>
+        <td>Helpful</td>
+    </tr>
+
+</table>
+
+<h2>Morale</h2>
+<p>
+    NPCs must pass a MIND Save to avoid fleeing when they take their first
+    casualty and again when they lose half their number.
+    Some groups may use their leader’s MIND in place of their own. Lone foes
+    must Save when they’re reduced to 0 HP.
+    Morale does not affect PCs.
+</p>
+
+
+
+{% endblock %}
