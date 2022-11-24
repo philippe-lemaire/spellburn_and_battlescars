@@ -78,12 +78,14 @@ def choose_origin_view(request, pk):
     character = Character.objects.get(pk=pk)
     # check if character.user and request.user match
     if character.user == request.user:
+        # if we're in the POST method case
         if request.method == "POST":
             # create the filled form, with archetype to manage the prompt and the choices
             form = ChooseOriginForm(character.archetype, request.POST)
 
             if form.is_valid():
                 origin_prompt = origins.get(character.archetype).get("prompt")
+                # offset by 1 because the choices enumerate starting from 1 instead of 0
                 choice_made = int(form.cleaned_data["origin"]) - 1
                 origin_text = origins.get(character.archetype).get("choices")[
                     choice_made
