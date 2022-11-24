@@ -36,9 +36,9 @@
 
 
 <br>
-<div class="alert alert-success">
-    {% if SUM %}
 
+{% if SUM %}
+<div class="alert alert-success">
     <h2>Results</h2>
     {% for d in DICE_LIST %}
     <img src="{% static 'characters/dice/' %}/{{d}}.png " alt="a die showing {{d}}" />
