@@ -1,5 +1,7 @@
 from django import forms
 
+from .spells import spell_choices
+
 
 class CharacterCreationForm(forms.Form):
     name = forms.CharField(
@@ -31,9 +33,10 @@ class CharacterCreationForm(forms.Form):
 
 
 class RollSpellForm(forms.Form):
+    spell = forms.ChoiceField(choices=spell_choices)
     power = forms.IntegerField(
         min_value=1,
         max_value=5,
-        label="What's the power level you are casting with ? Up to your free inventory slots (max 5). High power levels are dangerous.",
+        label="How many dice do you want to invest?",
         required=True,
     )

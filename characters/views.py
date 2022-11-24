@@ -21,7 +21,7 @@ from .archetypes import archetypes, origins
 from .equipment import ARMOR, WEAPONS, GEAR_TOOLS
 from .scars import scars
 from .mishaps import mishaps
-from .spells import spells
+from .spells import spells, spell_names, spell_dict
 
 
 @login_required
@@ -152,6 +152,11 @@ def roll_spell_view(request):
 
         if form.is_valid():
             power = form.cleaned_data.get("power")
+            spell_chosen = int(form.cleaned_data.get("spell"))
+
+            spell_name = spell_names[spell_chosen]
+            spell_effect = spell_dict[spell_name]
+
             DICE_LIST, SUM, DICE, FATIGUE, MISHAP = roll_spell_func(power)
             context = {
                 "form": form,
@@ -160,6 +165,8 @@ def roll_spell_view(request):
                 "DICE": DICE,
                 "FATIGUE": FATIGUE,
                 "MISHAP": MISHAP,
+                "spell_name": spell_name,
+                "spell_effect": spell_effect,
             }
             return render(request, "characters/roll_spell.html", context)
         # if a GET (or any other method) we'll create a blank form

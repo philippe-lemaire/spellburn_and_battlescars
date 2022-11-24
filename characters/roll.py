@@ -51,6 +51,7 @@ def roll_spell_func(power):
     mishap = None
     # roll the power * d6
     dice = [randint(1, 6) for d in range(power)]
+    dice.sort()
 
     sum_ = sum(dice)
     # each die above 3 gives fatigue

@@ -5,6 +5,25 @@
 {% block content %}
 <h1>Casting a spell</h1>
 
+<p>
+    To cast a spell, your character must hold a Grimoire or Scroll in both hands
+    and read it aloud.</p>
+
+<p>When your character Casts a Spell, decide on the <b>Power</b> to cast it with.<br>
+    Starting Power can go up to your character’s available Inventory Slots, with
+    a maximum of 5.</p>
+
+<p><b>Roll a number of d6 equal to the Power chosen.</b> The spell has an effect,
+    which varies depending on the number of <b>[DICE]</b> invested, and the <b>[SUM]</b>
+    of the rolled dice. </p>
+
+<ul>
+    <li>For each [DICE] that shows 4 to 6, you suffer 1 Fatigue.</li>
+</ul>
+
+<p>If two or more [DICE] show the same number, <em>something has gone very wrong.</em>
+    Find out what happened looking at the spell’s [SUM] on the Mishaps Table.</p>
+
 <h2>Power Level</h2>
 <form action="{% url 'characters:roll_spell' %}" method="post">
     {% csrf_token %}
@@ -15,20 +34,30 @@
     <input type="submit" value="Roll the dice">
 </form>
 
-{% if SUM %}
+
 <br>
-<h2>Result</h2>
-{{DICE_LIST}}
-<ul>
-    <li>SUM: {{SUM}}</li>
-    <li>DICE: {{DICE}}</li>
-    <li>FATIGUE: {{FATIGUE}}</li>
+<div class="alert alert-success">
+    {% if SUM %}
 
-</ul>
+    <h2>Results</h2>
+    {% for d in DICE_LIST %}
+    <img src="{% static 'characters/dice/' %}/{{d}}.png " alt="a die showing {{d}}" />
+    {% endfor %}
 
+    <ul>
+        <li>SUM: {{SUM}}</li>
+        <li>DICE: {{DICE}}</li>
+        <li>FATIGUE: {{FATIGUE}}</li>
+
+    </ul>
+    <h3>{{spell_name}}</h3>
+    <p>{{spell_effect}}</p>
+</div>
 {% if MISHAP %}
-<h2>Oh no, there was a mishap!</h2>
-<p> {{MISHAP}}</p>
+<div class="alert alert-danger">
+    <h2>Oh no, there was a mishap!</h2>
+    <p> {{MISHAP}}</p>
+</div>
 {% endif %}
 
 

@@ -180,3 +180,8 @@ spells = [
         "effect": "Fills a Close area with sticky web for [DICE] Turns.",
     },
 ]
+
+spell_names = [spell.get("name") for spell in spells]
+spell_effects = [spell.get("effect") for spell in spells]
+spell_dict = dict(zip(spell_names, spell_effects))
+spell_choices = tuple((num, name) for num, name in enumerate(spell_names, 0))
