@@ -1,6 +1,5 @@
 django
 django-dotenv
-django-markdownx
 gunicorn
 whitenoise
 requests
