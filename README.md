@@ -15,6 +15,7 @@ Create a `.env` file containing
 
 >>>
 SECRET_KEY=some_secret_key_of_your_own
+
 ENVIRONMENT=development
 >>>
 
