@@ -1,5 +1,5 @@
 from django import forms
-from .archetypes import origins
+from .archetypes import origins, triggers_dict, abilities_dict
 from .spells import spell_choices
 
 
@@ -34,7 +34,12 @@ class CharacterCreationForm(forms.Form):
 
 class ChooseOriginForm(forms.Form):
     origin = forms.ChoiceField(
-        label="",
+        label="<b>Origins</b><br>",
+        choices=[],
+        required=True,
+    )
+    ability = forms.ChoiceField(
+        label="<b>Abilities</b><br>",
         choices=[],
         required=True,
     )
@@ -43,7 +48,9 @@ class ChooseOriginForm(forms.Form):
         super().__init__(*args, **kwargs)
         if archetype:
             self.fields["origin"].choices = origins.get(archetype).get("choices")
-            self.fields["origin"].label = origins.get(archetype).get("prompt")
+            self.fields["origin"].label += origins.get(archetype).get("prompt")
+            self.fields["ability"].label += triggers_dict.get(archetype)
+            self.fields["ability"].choices = abilities_dict.get(archetype)
 
 
 class RollSpellForm(forms.Form):

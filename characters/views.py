@@ -16,7 +16,7 @@ from .roll import roll_stats, roll_spell_func
 
 from .backgrounds import backgrounds
 from .random_names import random_names
-from .archetypes import archetypes, origins
+from .archetypes import archetypes, origins, abilities_dict, triggers_dict
 
 from .equipment import ARMOR, WEAPONS, GEAR_TOOLS
 from .scars import scars
@@ -47,13 +47,17 @@ def create_character(request):
             character.hp = randint(1, 6)
             background, bg_gear = choice(backgrounds.get(character.hp))
             character.background = background
-            character.gear = bg_gear
+            character.gear = [
+                bg_gear,
+                "Three days’ Rations",
+                "A Torch",
+            ]
             prioritize_body = form.cleaned_data["prioritize_body"]
             body, mind, luck = roll_stats(prioritize_body=prioritize_body)
             character.body = body
             character.mind = mind
             character.luck = luck
-
+            character.gold = 10
             # save the char
             character.save()
 
@@ -91,6 +95,11 @@ def choose_origin_view(request, pk):
                     choice_made
                 ][1]
                 character.origin = f"<b>{origin_prompt}</b><br>{origin_text}"
+
+                # add the chosen ability
+                choice_made = int(form.cleaned_data.get("ability"))
+                character.abilities = [int(choice_made)]
+
                 character.save()
                 messages.success(
                     request, f"Welcome, {character.name} the {character.archetype}."
@@ -123,6 +132,18 @@ class my_characters(LoginRequiredMixin, ListView):
 class character_detail(LoginRequiredMixin, DetailView):
     model = Character
     template_name = "characters/character_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        archetype = context.get("character").archetype
+        context.get("character").abilities = eval(context.get("character").abilities)
+        context["triggers"] = triggers_dict.get(archetype)
+        context["abilities"] = [ab[1] for ab in abilities_dict.get(archetype)]
+        context["rows"] = list(range(5))
+        inventory = eval(context.get("character").gear)
+        empty_slots = ["" for _ in range(10 - len(inventory))]
+        context["inventory"] = inventory + empty_slots
+        return context
 
 
 @login_required

@@ -132,5 +132,166 @@ origins = dict(
     )
 )
 
-if __name__ == "__main__":
-    print(origins)
+abilities_cleric = (
+    (
+        0,
+        "Healer • Burn 1 LUCK and make an appropriate Save to remove a disease, poison or curse from a Close target.",
+    ),
+    (
+        1,
+        "Miracle • You can beg your deity for aid in a desperate manner.\nWhen you do so, Save LUCK, on a success your plea is heard precisely, on a failure it doesn’t happen exactly as you expected. Regardless of the result, your LUCK becomes 0 after the roll.",
+    ),
+    (
+        2,
+        "Sacrifice • You can regain LUCK by making offerings to appease your deity, being that wealth or specific items related to your faith. How much LUCK is received depends on the magnitude of the sacrifice, at the GM's discretion.",
+    ),
+    (
+        3,
+        "Turn Unholy • You may suffer Fatigue to make all Nearby creatures considered heretical to your deity test Morale (pg 32).",
+    ),
+)
+
+abilities_fighter = (
+    (
+        0,
+        "Combat Maneuvers • In combat, you can attack and make a maneuver (disarm, blind, etc) in the same action.",
+    ),
+    (
+        1,
+        "Critical Hits • When you inflict BODY Damage but the target succeeds in the Critical Damage Save, their attacks are Impaired on the next Round.",
+    ),
+    (
+        2,
+        "Scrap Fighter • You can destroy one item you're carrying to ignore Damage you're about to suffer, as long as you can explain how the item protects you.",
+    ),
+    (
+        3,
+        "Slayer • When fighting with weapons, you re-roll any Damage rolls of 1.  You must use the new result.",
+    ),
+)
+
+abilities_magic_user = (
+    (
+        0,
+        "Arcanist • Reading magical runes, interpreting scrolls, and dealing with other magical items is Trivial to you.",
+    ),
+    (
+        1,
+        "Blood Sacrifice • Once per Casting Spell, you may take d4 Damage to add +1 Power to your roll. Reduce any Fatigue created by this spell by 1.",
+    ),
+    (
+        2,
+        "Dangerous Magic • When you Cast Spell, you may burn 1 LUCK to re-roll all dice used. You must use the new roll.",
+    ),
+    (
+        3,
+        "Familiar • Gain a mystical companion with 3 HP and an interesting ability (determined by the GM). You can communicate with it telepathically as long as you can see it. If it dies, it can be re-summoned one week later by spending a night's work.",
+    ),
+)
+
+abilities_thief = (
+    (0, "Expertise • You do thief stuff with Advantage (hide, climb, etc).  "),
+    (
+        1,
+        "Lucky • At the start of each session Roll d20, if the result is higher than your current LUCK, increase it by 1.",
+    ),
+    (
+        2,
+        "Practiced in Shadows • Attempting to hide or move with stealth against non-magical creatures of similar sensory ability to humans is Trivial to you.",
+    ),
+    (
+        3,
+        "Thieves’ Cant • You speak a secret dialect know only by other thieves, allowing you to hide messages inside seemingly normal conversations.",
+    ),
+)
+
+abilities_dwarf = (
+    (
+        0,
+        "Combat Maneuvers • In combat, you can attack and make a maneuver (disarm, blind, etc) in the same action.",
+    ),
+    (1, "Dwarven Senses • You can sniff out gold items and precious gems Nearby."),
+    (2, "Resilience • You have Advantage on Saves against poison and disease."),
+    (
+        3,
+        "Shield Master • While wearing a shield, you can suffer Fatigue to ignore the physical Damage received from an attack.",
+    ),
+)
+
+abilities_elf = (
+    (0, "Ancient Mind • You’re immune to magical sleep and paralysis.  "),
+    (
+        1,
+        "Arcane by Nature • Once per day, you can make a LUCK Save to ignore a spell Mishap.",
+    ),
+    (
+        2,
+        'Heightened Senses • You get a "weird feeling" when there’s a secret passage Close to you.',
+    ),
+    (
+        3,
+        "Precise Grace • So long as you are aware of the threat, you can never be disarmed.",
+    ),
+)
+
+abilities_halfling = (
+    (
+        0,
+        "Good Luck Charm • Once per session, you can have an ally in eyesight to remake any roll. They choose which result to keep.",
+    ),
+    (
+        1,
+        "Lucky • At the start of each session Roll d20, if the result is higher than your current LUCK, increase it by 1.",
+    ),
+    (
+        2,
+        "Slippery • You have Advantage on Saves made to sneak and hide, and can do so even against creatures with supernatural senses.",
+    ),
+    (
+        3,
+        "Two-weapon Fighter • When you're dual wielding, you have a +d8 Bonus Damage to your attacks.",
+    ),
+)
+
+triggers_cleric = "Begin with one. Gain another when you Recover a Treasure or Consecrate a Place of Power."
+triggers_fighter = (
+    "Begin with one. Gain another when you Recover a Treasure or Defeat a Notable Foe."
+)
+triggers_magic_user = "Begin with one. Gain another when you Recover a Treasure or Uncover Ancient Knowledge."
+triggers_thief = (
+    "Begin with one. Gain another when you Recover a Treasure or Succeed in a Heist."
+)
+triggers_dwarf = "Begin with one. Gain another when you Recover a Treasure or Strengthen your People."
+triggers_elf = (
+    "Begin with one. Gain another when you Recover a Treasure or Amend with Nature."
+)
+triggers_halfling = (
+    "Begin with one. Gain another when you Recover a Treasure or Achieve Greatness."
+)
+
+triggers = (
+    triggers_cleric,
+    triggers_fighter,
+    triggers_magic_user,
+    triggers_thief,
+    triggers_thief,
+    triggers_dwarf,
+    triggers_elf,
+    triggers_halfling,
+)
+abilities_choices = (
+    abilities_cleric,
+    abilities_fighter,
+    abilities_magic_user,
+    abilities_thief,
+    abilities_dwarf,
+    abilities_elf,
+    abilities_halfling,
+)
+
+triggers_dict = dict(zip(archetypes, triggers))
+
+abilities_dict = dict(zip(archetypes, abilities_choices))
+
+
+# starting gear

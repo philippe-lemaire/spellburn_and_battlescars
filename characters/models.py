@@ -14,6 +14,7 @@ class Character(models.Model):
     name = models.TextField(max_length=200)
     archetype = models.TextField(max_length=200)
     origin = models.TextField(max_length=400, null=True, blank=True)
+    abilities = models.TextField(max_length=10, null=True, blank=True)
     background = models.TextField(max_length=200, null=True, blank=True)
     armor = models.SmallIntegerField(default=0, blank=True, null=True)
     hp = models.SmallIntegerField(default=0, blank=True, null=True)

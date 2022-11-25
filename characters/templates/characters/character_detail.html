@@ -9,97 +9,70 @@ Spellburn and Battlescars | {{character.name}}
 <div class="container">
     <div class="row">
         <div class="col-xs-6">
-            <table class="table table-striped" style="width: 400px">
+            <h1>{{character.name}}</h1>
+            <h2><b>BACKGROUND: </b> {{character.background}}</h2>
+            <table class="table">
                 <tr>
-                    <th colspan="2">{{character.name}}</th>
-                </tr>
-
-                <tr>
-                    <th>Background</th>
-                    <td>{{character.background}}</td>
-                </tr>
-                <tr>
-                    <th>Origin</th>
-                    <td>{{character.origin|safe}}</td>
-                </tr>
-
-            </table>
-
-            <table class="table table-striped" style="width: 400px">
-                <tr>
-                    <th>Gear</th>
-                    <th>Gold</th>
+                    <th>HP</th>
+                    <th>Armor</th>
+                    <th>BODY</th>
+                    <th>MIND</th>
+                    <th>LUCK</th>
                 </tr>
                 <tr>
-                    <td>{{character.gear}}</td>
-                    <td>{{character.gold}}</td>
-                </tr>
-
-            </table>
-
-
-        </div>
-        <div class="col-xs-6"> </div>
-        <div class="col-xs-6">
-            <table class="table table-striped">
-                <tr>
-                    <th colspan="2">{{character.archetype}}</th>
-                </tr>
-
-                <tr>
-                    <td>❤️</td>
-                    <td> {{character.hp}}</td>
-                </tr>
-                <tr>
-                    <td>🛡️</td>
+                    <td>{{character.hp}} | {{character.hp}}</td>
                     <td>{{character.armor}}</td>
-                </tr>
-
-            </table>
-
-        </div>
-        <div class="col-xs-6"> </div>
-        <div class="col-xs-6">
-            <table class="table table-striped" style="width: 250px">
-                <tr>
-                    <th scope="col">Attribute</th>
-                    <th scope="col">Value</th>
-
-                </tr>
-                <tr>
-                    <td>BODY</td>
-                    <td>{{character.body}}</td>
-
-                </tr>
-                <tr>
-                    <td>MIND</td>
-                    <td>{{character.mind}}</td>
-
-                </tr>
-                <tr>
-                    <td>LUCK</td>
+                    <td>{{character.body}} | {{character.body}}</td>
+                    <td>{{character.mind}} | {{character.mind}}</td>
                     <td>{{character.luck}}</td>
-
                 </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2">☐ DEPRIVED</td>
+                    <td>Burn to modify save</td>
+                </tr>
+            </table>
+            <h2><b>ARCHETYPE:</b> {{character.archetype}}.</h2>
+            <p>{{character.origin|safe}}</p>
 
-
+            <h2><b>SPECIAL ABILITIES</b></h2>
+            <p>{{triggers}}</p>
+            <table class="table">
+                {% for ability in abilities%}
+                <tr>
+                    {% if forloop.counter0 in character.abilities %}
+                    <td>✅</td>
+                    {% else%}
+                    <td>☐</td>
+                    {% endif %}
+                    <td>
+                        {{ability}}
+                    </td>
+                </tr>
+                {%endfor%}
             </table>
 
+            <table class="table">
+                <tr>
+                    <th>INVENTORY</th>
+                    <th></th>
+                </tr>
+                {% for item in inventory %}
+                <tr>
+                    <td>{{forloop.counter}}: </td>
+                    <td> {{item}}</td>
 
-
-
+                </tr>
+                {% endfor %}
+            </table>
+            <h5><b>GP:</b> {{character.gold}}</h5>
         </div>
-        <div class="col-xs-6"> </div>
-
     </div>
 </div>
 
-
-
-<br>
-
-<a class="btn btn-secondary" role="button" href="#">📝 Edit</a>
-<a class='btn btn-danger' role="button" href="{% url 'characters:delete_character' character.pk %}">⚰️ Delete</a>
+<a class='btn btn-danger float-right' role="button" href="{% url 'characters:delete_character' character.pk %}">⚰️
+    Delete</a>
 
 
 {% endblock %}
