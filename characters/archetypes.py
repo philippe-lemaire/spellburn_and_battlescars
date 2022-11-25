@@ -295,3 +295,81 @@ abilities_dict = dict(zip(archetypes, abilities_choices))
 
 
 # starting gear
+
+gear_cleric = [
+    "Heavy Maul (d10, bulky)",
+    "Chainmail (2 Armor, bulky)",
+    "",
+    "Helmet (+1 Armor)",
+    "Holy Symbol",
+    " Cloak of the Order",
+]
+
+gear_fighter = [
+    "Glaive (d10, bulky)",
+    "",
+    "Arming Sword (d8)",
+    "Shortbow (d6)",
+    "Splintmail (1 Armor)",
+    "Tobacco & Pipe",
+    "Dice Set",
+]
+
+gear_magic_user = [
+    "Fizzled Staff (d6)",
+    "Grimoire (pick one spell, bulky)",
+    "",
+    "Scroll (random spell)",
+    "Ragged Clothing (hidden pockets)",
+    "Two Leycaps (pg 47)",
+]
+
+gear_thief = [
+    "Dagger (d6)",
+    "Dagger (d6)",
+    "Hooded Jerkin (1 Armor)",
+    "Lockpicks",
+    "Grappling Hook",
+    "Metal File",
+]
+
+gear_dwarf = [
+    "Mace (d8)",
+    "Chainmail (2 Armor, bulky)",
+    "",
+    "Shield (+1 Armor)",
+    "Pick",
+    "Large Sack",
+]
+
+
+gear_elf = [
+    "Elegant Sword (d8)",
+    "Recurve Bow (d8)",
+    "Gilt Clothing (1 Armor)",
+    "Grimoire (Charm or Detect Magic, bulky)",
+    "",
+    "Silken Rope",
+]
+
+gear_halfling = [
+    "Sling (d4)",
+    "Fancy Leathers (1 Armor)",
+    "Shortsword (d6)",
+    "Shortsword (d6)",
+    "Bag of Marbles",
+    "Tobacco Pouch & Pipe",
+]
+
+
+gear = [
+    gear_cleric,
+    gear_fighter,
+    gear_magic_user,
+    gear_thief,
+    gear_dwarf,
+    gear_elf,
+    gear_halfling,
+]
+
+starting_gear_dict = dict(zip(archetypes, gear))

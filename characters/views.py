@@ -16,7 +16,13 @@ from .roll import roll_stats, roll_spell_func
 
 from .backgrounds import backgrounds
 from .random_names import random_names
-from .archetypes import archetypes, origins, abilities_dict, triggers_dict
+from .archetypes import (
+    archetypes,
+    origins,
+    abilities_dict,
+    triggers_dict,
+    starting_gear_dict,
+)
 
 from .equipment import ARMOR, WEAPONS, GEAR_TOOLS
 from .scars import scars
@@ -47,11 +53,12 @@ def create_character(request):
             character.hp = randint(1, 6)
             background, bg_gear = choice(backgrounds.get(character.hp))
             character.background = background
+
             character.gear = [
                 bg_gear,
                 "Three days’ Rations",
                 "A Torch",
-            ]
+            ] + starting_gear_dict.get(character.archetype)
             prioritize_body = form.cleaned_data["prioritize_body"]
             body, mind, luck = roll_stats(prioritize_body=prioritize_body)
             character.body = body
