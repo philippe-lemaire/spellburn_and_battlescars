@@ -21,14 +21,14 @@ Spellburn and Battlescars | My Characters
             <th scope='col'>LUCK</th>
             <th scope='col'>Background</th>
 
-            <th scope="col">Edit</th>
+
             <th scope="col">Delete</th>
         </tr>
     </thead>
     <tbody>
         {% for char in characters %}
         <tr>
-            <th scope="row">{{ loop.index }}</th>
+            <th scope="row">{{ forloop.counter }}</th>
             <td><a href="{% url 'characters:character_detail' char.pk %}">{{char.name}}</a></td>
 
             <td>{{char.archetype}}</td>
@@ -39,7 +39,7 @@ Spellburn and Battlescars | My Characters
             <td>{{char.luck}}</td>
             <td>{{char.background}}</td>
 
-            <td><a href="#">📝</a></td>
+
             <td><a class='danger' href="{% url 'characters:delete_character' char.pk %}">⚰️</a></td>
         </tr>
         {% endfor %}
