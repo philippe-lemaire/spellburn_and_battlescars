@@ -10,7 +10,10 @@ Spellburn and Battlescars | My Characters
 {% for char in characters %}
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">{{char.name}}</h5>
+        <h5 class="card-title">
+            <a href="{% url 'characters:character_detail' char.pk %}">
+                {{char.name}}</a>
+        </h5>
         <h6 class="card-subtitle mb-2 text-muted">{{char.archetype}}</h6>
         <p class="card-text">Background: {{char.background}}</p>
         <p class="card-text">HP: {{char.hp}}</p>
