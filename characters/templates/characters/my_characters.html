@@ -7,45 +7,22 @@ Spellburn and Battlescars | My Characters
 {% block content %}
 <h1>My Characters</h1>
 
-<table class="table table-hover table-striped">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
+{% for char in characters %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{char.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{char.archetype}}</h6>
+        <p class="card-text">Background: {{char.background}}</p>
+        <p class="card-text">HP: {{char.hp}}</p>
+        <p class="card-text">BODY: {{char.body}}</p>
+        <p class="card-text">MIND: {{char.mind}}</p>
+        <p class="card-text">LUCK: {{char.luck}}</p>
+        <a class='btn btn-danger float-right' role="button" href="{% url 'characters:delete_character' char.pk %}">⚰️
+            Delete</a>
+    </div>
+</div>
+<br>
 
-            <th scope="col">Archetype</th>
-
-            <th scope='col'>HP</th>
-            <th scope='col'>BODY</th>
-            <th scope='col'>MIND</th>
-            <th scope='col'>LUCK</th>
-            <th scope='col'>Background</th>
-
-
-            <th scope="col">Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for char in characters %}
-        <tr>
-            <th scope="row">{{ forloop.counter }}</th>
-            <td><a href="{% url 'characters:character_detail' char.pk %}">{{char.name}}</a></td>
-
-            <td>{{char.archetype}}</td>
-
-            <td>{{char.hp}}</td>
-            <td>{{char.body}}</td>
-            <td>{{char.mind}}</td>
-            <td>{{char.luck}}</td>
-            <td>{{char.background}}</td>
-
-
-            <td><a class='danger' href="{% url 'characters:delete_character' char.pk %}">⚰️</a></td>
-        </tr>
-        {% endfor %}
-
-    </tbody>
-</table>
-
+{% endfor %}
 <a class="btn btn-primary" role="button" href="{% url 'characters:create_character' %}">Create a new character</a>
 {% endblock %}
