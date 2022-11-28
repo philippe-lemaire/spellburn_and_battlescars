@@ -13,15 +13,42 @@ Spellburn and Battlescars | Opponents
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="{% url 'creatures:detail' creature.pk %}">{{ creature.name }}</a>
+                        {{ creature.name }}
                     </h5>
 
+                    <table class="table">
+                        <tr>
+                            <th>
+                                HP
+                            </th>
+                            <td>{{creature.hp}}</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Armor
+                            </th>
+                            <td>{{creature.armor}}</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                BODY
+                            </th>
+                            <td>{{creature.body}}</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                MIND
+                            </th>
+                            <td>{{creature.mind}}</td>
+                        </tr>
+                        <tr>
+                            <th>Attack</th>
+                            <td>{{creature.attack}}</td>
+                        </tr>
+                    </table>
 
-                    <p class="card-text">HP: {{creature.hp}}</p>
-                    <p class="card-text">BODY: {{creature.body}}</p>
-                    <p class="card-text">MIND: {{creature.mind}}</p>
                     {% if creature.special %}
-                    <p>{{creature.special|safe}}</p>
+                    <p class="card-text">{{creature.special|safe}}</p>
 
                     {% endif %}
                     </p>
