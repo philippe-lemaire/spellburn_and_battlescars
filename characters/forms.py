@@ -12,7 +12,7 @@ class CharacterCreationForm(forms.Form):
     archetype_choices = (
         ("1", "Cleric"),
         ("2", "Fighter"),
-        ("3", "Magic-User"),
+        ("3", "Magic User"),
         ("4", "Thief"),
         ("5", "Dwarf"),
         ("6", "Elf"),
