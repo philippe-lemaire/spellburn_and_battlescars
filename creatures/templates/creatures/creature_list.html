@@ -4,28 +4,34 @@ Spellburn and Battlescars | Opponents
 {% endblock %}
 {% block content %}
 <h1>Opponnents</h1>
+<br>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>HP</th>
-            <th>Armor</th>
-            <th>BODY</th>
-            <th>MIND</th>
-        </tr>
-    </thead>
-    {% for creature in creature_list %}
-    <tr>
-        <td>
-            <a href="{% url 'creatures:detail' creature.pk %}">{{ creature.name }}</a>
-        </td>
-        <td>{{ creature.hp }}</td>
-        <td>{% if creature.armor %}{{ creature.armor }}{% endif %}</td>
-        <td>{{ creature.body }}</td>
-        <td>{{ creature.mind }}</td>
+<div class="container">
+    <div class="row">
+        {% for creature in creature_list %}
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{% url 'creatures:detail' creature.pk %}">{{ creature.name }}</a>
+                    </h5>
 
-    </tr>
-    {% endfor %}
-</table>
+
+                    <p class="card-text">HP: {{creature.hp}}</p>
+                    <p class="card-text">BODY: {{creature.body}}</p>
+                    <p class="card-text">MIND: {{creature.mind}}</p>
+                    {% if creature.special %}
+                    <p>{{creature.special|safe}}</p>
+
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+            <br>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}
