@@ -9,34 +9,33 @@ Spellburn and Battlescars | {{character.name}}
 <div class="container">
     <div class="row">
         <div class="col-xs-6">
-            <h1>{{character.name}}</h1>
-            <h2><b>BACKGROUND: </b> {{character.background}}</h2>
+            <h1>{{character.name}}, the {{character.archetype}}</h1>
+
+
+            <p>Former {{character.background}}</p>
+            <h4>Ability scores</h4>
             <table class="table">
                 <tr>
-                    <th>HP</th>
-                    <th>Armor</th>
-                    <th>BODY</th>
-                    <th>MIND</th>
-                    <th>LUCK</th>
+                    <th>♥️</th>
+                    <th>🛡️</th>
+                    <th>💪</th>
+                    <th>🧠</th>
+                    <th>🍀</th>
                 </tr>
                 <tr>
-                    <td>{{character.hp}} | {{character.hp}}</td>
+                    <td>{{character.hp}}/{{character.hp}}</td>
                     <td>{{character.armor}}</td>
-                    <td>{{character.body}} | {{character.body}}</td>
-                    <td>{{character.mind}} | {{character.mind}}</td>
+                    <td>{{character.body}}/{{character.body}}</td>
+                    <td>{{character.mind}}/{{character.mind}}</td>
                     <td>{{character.luck}}</td>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td colspan="2">☐ DEPRIVED</td>
-                    <td>Burn to modify save</td>
-                </tr>
+
             </table>
-            <h2><b>ARCHETYPE:</b> {{character.archetype}}.</h2>
+            <h4>Origin:</h4>
+
             <p>{{character.origin|safe}}</p>
 
-            <h2><b>SPECIAL ABILITIES</b></h2>
+            <h4>Special abilities</h4>
             <p>{{triggers}}</p>
             <table class="table">
                 {% for ability in abilities%}
@@ -55,7 +54,7 @@ Spellburn and Battlescars | {{character.name}}
 
             <table class="table">
                 <tr>
-                    <th>INVENTORY</th>
+                    <th>Inventory</th>
                     <th></th>
                 </tr>
                 {% for item in inventory %}

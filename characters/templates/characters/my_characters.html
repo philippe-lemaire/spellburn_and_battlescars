@@ -18,11 +18,24 @@ Spellburn and Battlescars | My Characters
                             {{char.name}}</a>
                     </h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{char.archetype}}</h6>
-                    <p class="card-text">Background: {{char.background}}</p>
-                    <p class="card-text">HP: {{char.hp}}</p>
-                    <p class="card-text">BODY: {{char.body}}</p>
-                    <p class="card-text">MIND: {{char.mind}}</p>
-                    <p class="card-text">LUCK: {{char.luck}}</p>
+                    <p class="card-text">Former {{char.background}}</p>
+                    <table class="table">
+                        <tr>
+                            <th>♥️</th>
+
+                            <th>💪</th>
+                            <th>🧠</th>
+                            <th>🍀</th>
+                        </tr>
+                        <tr>
+                            <td>{{char.hp}}</td>
+
+                            <td>{{char.body}}</td>
+                            <td>{{char.mind}}</td>
+                            <td>{{char.luck}}</td>
+                        </tr>
+
+                    </table>
                     <a class='btn btn-danger float-right' role="button"
                         href="{% url 'characters:delete_character' char.pk %}">
                         Delete</a>
