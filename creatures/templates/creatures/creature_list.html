@@ -18,35 +18,25 @@ Spellburn and Battlescars | Opponents
 
                     <table class="table">
                         <tr>
-                            <th>
-                                HP
-                            </th>
-                            <td>{{creature.hp}}</td>
-                        </tr>
-                        <tr>
-                            <th>
-                                Armor
-                            </th>
-                            <td>{{creature.armor}}</td>
-                        </tr>
-                        <tr>
-                            <th>
-                                BODY
-                            </th>
-                            <td>{{creature.body}}</td>
-                        </tr>
-                        <tr>
-                            <th>
-                                MIND
-                            </th>
-                            <td>{{creature.mind}}</td>
-                        </tr>
-                        <tr>
-                            <th>Attack</th>
-                            <td>{{creature.attack}}</td>
-                        </tr>
-                    </table>
+                            <th>♥️</th>
+                            <th>🛡️</th>
+                            <th>💪</th>
+                            <th>🧠</th>
 
+                        </tr>
+                        <tr>
+                            <td>{{creature.hp}}</td>
+                            {% if creature.armor %}
+                            <td>{{creature.armor}}</td>
+                            {% else %}
+                            <td>0</td>
+                            {% endif %}
+                            <td>{{creature.body}}</td>
+                            <td>{{creature.mind}}</td>
+
+                        </tr>
+
+                    </table>
                     {% if creature.special %}
                     <p class="card-text">{{creature.special|safe}}</p>
 
