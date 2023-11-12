@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "creatures",
     "simple_auth",
     "crispy_forms",
+    "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [

@@ -34,12 +34,12 @@ class CharacterCreationForm(forms.Form):
 
 class ChooseOriginForm(forms.Form):
     origin = forms.ChoiceField(
-        label="<b>Origins</b><br>",
+        label="Origins: ",
         choices=[],
         required=True,
     )
     ability = forms.ChoiceField(
-        label="<b>Abilities</b><br>",
+        label="Abilities: ",
         choices=[],
         required=True,
     )
